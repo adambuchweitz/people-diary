@@ -1,0 +1,383 @@
+:root {
+  --paper: #fbf8f3;
+  --surface: #ffffff;
+  --ink: #2a2420;
+  --ink-2: #5f564e;
+  --ink-3: #8f857b;
+  --line: #e8e0d6;
+  --accent: #c2410c;
+  --accent-soft: #fdeee6;
+  --people: #2b6f6b;
+  --radius: 12px;
+  color: var(--ink);
+  background: var(--paper);
+  font: 16px/1.5 ui-serif, Georgia, "Iowan Old Style", serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+.app {
+  display: grid;
+  grid-template-rows: auto auto auto 1fr;
+  min-height: 100vh;
+}
+
+.topbar {
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 24px;
+}
+
+.brand {
+  align-items: center;
+  display: flex;
+  font-size: 22px;
+  font-weight: 700;
+  gap: 10px;
+}
+
+.brand-mark {
+  background: var(--accent);
+  border-radius: 7px;
+  display: inline-block;
+  height: 26px;
+  width: 26px;
+}
+
+.connection {
+  align-items: center;
+  color: var(--ink-2);
+  display: flex;
+  font-family: system-ui, sans-serif;
+  font-size: 14px;
+  gap: 12px;
+}
+
+/* The button from People's developer guide. */
+.connect-with-people {
+  align-items: center;
+  background: #2b6f6b;
+  border: 0;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font: 600 15px/1 system-ui, sans-serif;
+  gap: 10px;
+  padding: 10px 16px;
+  text-decoration: none;
+}
+
+.connect-with-people:hover:not(:disabled) {
+  background: #235b58;
+}
+
+.connect-with-people:disabled {
+  opacity: 0.7;
+}
+
+.button {
+  border: 1px solid transparent;
+  border-radius: 9px;
+  cursor: pointer;
+  font-family: system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 8px 14px;
+}
+
+.button-primary {
+  background: var(--accent);
+  color: #fff;
+}
+
+.button-quiet {
+  background: transparent;
+  border-color: var(--line);
+  color: var(--ink-2);
+}
+
+.banner,
+.hint {
+  font-family: system-ui, sans-serif;
+  font-size: 14px;
+  margin: 12px 24px 0;
+}
+
+.banner {
+  background: var(--accent-soft);
+  border-radius: var(--radius);
+  padding: 10px 14px;
+}
+
+.hint {
+  color: var(--ink-3);
+}
+
+.hint a {
+  color: var(--people);
+}
+
+.layout {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 260px minmax(0, 1fr);
+  padding: 20px 24px 40px;
+}
+
+.sidebar ul {
+  display: grid;
+  gap: 4px;
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+}
+
+.sidebar li button {
+  background: transparent;
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  display: grid;
+  gap: 2px;
+  padding: 10px 12px;
+  text-align: left;
+  width: 100%;
+}
+
+.sidebar li button.is-selected {
+  background: var(--accent-soft);
+}
+
+.new-entry {
+  width: 100%;
+}
+
+.entry-date {
+  color: var(--ink-3);
+  font-family: system-ui, sans-serif;
+  font-size: 12.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.editor {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  display: grid;
+  gap: 16px;
+  padding: 24px;
+}
+
+.editor-meta {
+  align-items: center;
+  display: flex;
+  gap: 14px;
+}
+
+.editor-meta input {
+  background: transparent;
+  border: 0;
+  outline: none;
+}
+
+.editor-meta input[type="date"] {
+  color: var(--ink-3);
+  font-family: system-ui, sans-serif;
+  font-size: 14px;
+}
+
+.editor-title {
+  flex: 1;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.editor-body {
+  position: relative;
+}
+
+.editor-body textarea {
+  background: transparent;
+  border: 0;
+  font-size: 18px;
+  line-height: 1.7;
+  min-height: 300px;
+  outline: none;
+  resize: vertical;
+  width: 100%;
+}
+
+.picker {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: 0 12px 30px rgb(42 36 32 / 12%);
+  left: 0;
+  list-style: none;
+  margin: 0;
+  max-width: 340px;
+  padding: 6px;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  z-index: 2;
+}
+
+.picker button {
+  background: transparent;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+  display: grid;
+  font-family: system-ui, sans-serif;
+  padding: 8px 10px;
+  text-align: left;
+  width: 100%;
+}
+
+.picker [aria-selected="true"] button {
+  background: var(--accent-soft);
+}
+
+.picker span {
+  color: var(--ink-3);
+  font-size: 13px;
+}
+
+.photos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.photos li {
+  position: relative;
+}
+
+.photos img {
+  border-radius: 10px;
+  height: 110px;
+  object-fit: cover;
+  width: 150px;
+}
+
+.photos button {
+  background: rgb(0 0 0 / 55%);
+  border: 0;
+  border-radius: 999px;
+  color: #fff;
+  cursor: pointer;
+  height: 26px;
+  position: absolute;
+  right: 6px;
+  top: 6px;
+  width: 26px;
+}
+
+.mentioned {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  font-family: system-ui, sans-serif;
+  font-size: 13px;
+  gap: 8px;
+}
+
+.mentioned > span:first-child {
+  color: var(--ink-3);
+}
+
+.chip {
+  background: #e6f2f1;
+  border-radius: 999px;
+  color: var(--people);
+  cursor: default;
+  font-weight: 600;
+  padding: 4px 10px;
+  position: relative;
+}
+
+.chip em {
+  font-style: normal;
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+.person-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: 0 12px 30px rgb(42 36 32 / 14%);
+  color: var(--ink);
+  display: grid;
+  font-weight: 400;
+  gap: 4px;
+  left: 0;
+  min-width: 240px;
+  padding: 12px 14px;
+  position: absolute;
+  top: calc(100% + 6px);
+  z-index: 3;
+}
+
+.person-card-memory {
+  color: var(--ink-2);
+}
+
+.editor-actions {
+  align-items: center;
+  border-top: 1px solid var(--line);
+  display: flex;
+  gap: 10px;
+  padding-top: 14px;
+}
+
+.status {
+  color: var(--ink-3);
+  flex: 1;
+  font-family: system-ui, sans-serif;
+  font-size: 13.5px;
+}
+
+.empty {
+  display: grid;
+  gap: 10px;
+  justify-items: start;
+  padding: 40px 0;
+}
+
+.empty h1 {
+  font-size: 32px;
+  margin: 0;
+}
+
+.empty p {
+  color: var(--ink-2);
+  margin: 0;
+}
+
+@media (max-width: 760px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
